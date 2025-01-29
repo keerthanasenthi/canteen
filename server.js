@@ -1,13 +1,18 @@
-const http = require('http');
-const express = require('express');
-const app = express();
+const express = require("express");
+const mongoose = require("mongoose");
+require("dotenv").config();
 
-app.get('/', (req, res) => {
-  res.send('Hello, world!');
+const app = express();
+const PORT = process.env.PORT || 3000; // Use Render's assigned port
+
+app.use(express.json());
+
+// Sample route
+app.get("/", (req, res) => {
+  res.send("Server is running!");
 });
 
-const server = http.createServer(app);
-
-server.listen(3000, () => {
-  console.log('Server is running on port 3000');
+// Start server
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });
