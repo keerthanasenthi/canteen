@@ -11,7 +11,7 @@ app.use(cors());
 
 // MongoDB connection
 mongoose
-  .connect("mongodb://localhost:27017/canteen", { useNewUrlParser: true, useUnifiedTopology: true })
+  .connect("mongodb://localhost:27017/", )
   .then(() => {
     console.log("Connected to Canteen Management Database");
   })

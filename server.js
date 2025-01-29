@@ -1,8 +1,13 @@
-const server = http.createServer((req, res) => {
-    res.writeHead(200, { "Content-Type": "application/json" });
-    res.end(JSON.stringify(data)); 
+const http = require('http');
+const express = require('express');
+const app = express();
+
+app.get('/', (req, res) => {
+  res.send('Hello, world!');
 });
 
-server.listen(3001, () => {
-    console.log("Server is running on http://localhost:3001");
+const server = http.createServer(app);
+
+server.listen(3000, () => {
+  console.log('Server is running on port 3000');
 });
