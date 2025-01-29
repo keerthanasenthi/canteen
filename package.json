@@ -7,12 +7,8 @@
   "type": "commonjs",
   "main": "app.js",
   "scripts": {
-<<<<<<< HEAD
-    "test": "echo \"Error: no test specified\" && exit 1"
-=======
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
->>>>>>> 54b69bc017fed75d829997dafca55f00872c1fdf
   },
   "dependencies": {
     "bcrypt": "^5.1.1",

@@ -1,29 +1,20 @@
 const jwt = require("jsonwebtoken");
 
-const SECRET_KEY = "secret_key"; // Use a more secure key in production
-
-// Middleware to verify JWT token
-const authenticateToken = (req, res, next) => {
-  const token = req.header("Authorization")?.split(" ")[1]; // Bearer token
+const authMiddleware = (req, res, next) => {
+  //req.headers-->{
+  //  "Authorization": "Bearer eyJhbGciOiJIUzI1Ni
+  //}
+  const token = req?.header("Authorization")?.split(" ")[1];
   if (!token) {
-    return res.status(401).json({ message: "Access Denied: No Token Provided" });
+    return res.status(401).json({ message: "Access denied.No token provided" });
   }
-
   try {
-    const verified = jwt.verify(token, SECRET_KEY);
-    req.user = verified; // Add the user data to the request object
+    const decoded = jwt.verify(token, "secret_key");
+    req.user = decoded;
     next();
-  } catch (err) {
-    res.status(403).json({ message: "Invalid Token" });
+  } catch (error) {
+    return res.status(401).json({ message: "Invalid token" });
   }
 };
 
-// Generate JWT token
-const generateToken = (payload) => {
-  return jwt.sign(payload, SECRET_KEY, { expiresIn: "1h" }); // Token expires in 1 hour
-};
-
-module.exports = {
-  authenticateToken,
-  generateToken,
-};
+module.exports = authMiddleware;
