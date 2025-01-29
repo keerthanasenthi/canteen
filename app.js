@@ -159,4 +159,8 @@ app.delete("/api/food/:id", async (req, res) => {
 // Start Server
 app.listen(3000, () => {
   console.log("Canteen Management System server is running on port 3000");
+<<<<<<< HEAD
 });
+=======
+});
+>>>>>>> 54b69bc017fed75d829997dafca55f00872c1fdf
