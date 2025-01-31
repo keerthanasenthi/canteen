@@ -11,7 +11,7 @@ app.use(cors());
 
 // MongoDB connection
 mongoose
-  .connect("mongodb://localhost:27017/", )
+  .connect("mongodb+srv://keerthana:keerthu0401@cluster0.qeaumxm.mongodb.net/", )
   .then(() => {
     console.log("Connected to Canteen Management Database");
   })
